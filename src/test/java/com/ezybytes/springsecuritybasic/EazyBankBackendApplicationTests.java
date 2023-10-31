@@ -1,10 +1,10 @@
-package com.ezybytes.soringsecuritybasic;
+package com.ezybytes.springsecuritybasic;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SoringsecuritybasicApplicationTests {
+class EazyBankBackendApplicationTests {
 
 	@Test
 	void contextLoads() {
