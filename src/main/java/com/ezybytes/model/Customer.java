@@ -1,9 +1,6 @@
 package com.ezybytes.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -11,9 +8,9 @@ import org.hibernate.annotations.GenericGenerator;
 @Data
 public class Customer {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO,generator="native")
-    @GenericGenerator(name = "native")
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
+    @Column(unique=true)
     private String email;
     private String pwd;
     private String role;
