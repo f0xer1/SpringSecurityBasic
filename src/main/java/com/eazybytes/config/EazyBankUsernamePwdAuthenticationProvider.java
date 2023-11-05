@@ -1,7 +1,7 @@
-package com.ezybytes.config;
+package com.eazybytes.config;
 
-import com.ezybytes.model.Customer;
-import com.ezybytes.repository.CustomerRepository;
+import com.eazybytes.model.Customer;
+import com.eazybytes.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;

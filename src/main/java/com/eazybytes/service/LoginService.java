@@ -1,7 +1,7 @@
-package com.ezybytes.service;
+package com.eazybytes.service;
 
-import com.ezybytes.model.Customer;
-import com.ezybytes.repository.CustomerRepository;
+import com.eazybytes.model.Customer;
+import com.eazybytes.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +15,8 @@ public class LoginService {
     @Autowired
     private PasswordEncoder passwordEncoder;
     public ResponseEntity<String> registerUser(Customer customer){
+
+
         Customer savedCustomer = null;
         ResponseEntity<String> response = null;
         try {
