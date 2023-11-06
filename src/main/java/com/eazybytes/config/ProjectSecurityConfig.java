@@ -17,30 +17,15 @@ public class ProjectSecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/myAccount", "/myBalance", "/myLoans", "/myCards").authenticated()
+                        .requestMatchers("/myAccount", "/myBalance", "/myLoans", "/myCards", "/user").authenticated()
                         .requestMatchers("/notices", "/contact", "/register").permitAll())
                 .formLogin(Customizer.withDefaults())
                 .httpBasic(Customizer.withDefaults());
         return http.build();
     }
-//    @Bean
-//    public InMemoryUserDetailsManager userDetailsManager(){
-//        UserDetails admin = User.withUsername("admin")
-//                .password("12345")
-//                .authorities("admin")
-//                .build();
-//        UserDetails user = User.withUsername("user")
-//                .password("12345")
-//                .authorities("read")
-//                .build();
-//        return  new InMemoryUserDetailsManager(admin, user);
-//    }
-//   @Bean
-//    public UserDetailsService userDetailsService(DataSource dataSource) {
-//        return new JdbcUserDetailsManager(dataSource);
-//    }
+
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 

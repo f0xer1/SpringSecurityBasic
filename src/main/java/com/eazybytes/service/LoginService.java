@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
+
 @Service
 public class LoginService {
     @Autowired
@@ -22,6 +24,7 @@ public class LoginService {
         try {
             String hashPwd = passwordEncoder.encode(customer.getPwd());
             customer.setPwd(hashPwd);
+            customer.setCreateDt(String.valueOf(new Date(System.currentTimeMillis())));
             savedCustomer = customerRepository.save(customer);
             if (savedCustomer.getId() > 0) {
                 response = ResponseEntity
