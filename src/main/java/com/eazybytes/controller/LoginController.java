@@ -25,15 +25,13 @@ public class LoginController {
       return loginService.registerUser(customer);
     }
     @RequestMapping("/user")
-    public Customer getUserDetailsAfterLogin(Authentication authentication) {
-
+    public ResponseEntity<Customer> getUserDetailsAfterLogin(Authentication authentication) {
         List<Customer> customers = customerRepository.findByEmail(authentication.getName());
         if (customers.size() > 0) {
-            return customers.get(0);
+            return ResponseEntity.ok(customers.get(0));
         } else {
-            return null;
+            return ResponseEntity.notFound().build();
         }
-
     }
 
 }
